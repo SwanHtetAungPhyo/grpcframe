@@ -1,0 +1,49 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+
+      - name: Build binaries
+        run: |
+          mkdir -p release_binaries
+          
+          GOOS=linux GOARCH=amd64 go build -o release_binaries/grpcframe-linux-amd64 .
+          GOOS=linux GOARCH=386 go build -o release_binaries/grpcframe-linux-386 .
+          GOOS=linux GOARCH=arm go build -o release_binaries/grpcframe-linux-arm .
+          GOOS=linux GOARCH=arm64 go build -o release_binaries/grpcframe-linux-arm64 .
+
+          # macOS
+          GOOS=darwin GOARCH=amd64 go build -o release_binaries/grpcframe-darwin-amd64 .
+          GOOS=darwin GOARCH=arm64 go build -o release_binaries/grpcframe-darwin-arm64 .
+
+          # Windows
+          GOOS=windows GOARCH=amd64 go build -o release_binaries/grpcframe-windows-amd64.exe .
+          GOOS=windows GOARCH=386 go build -o release_binaries/grpcframe-windows-386.exe .
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            release_binaries/grpcframe-linux-amd64
+            release_binaries/grpcframe-linux-386
+            release_binaries/grpcframe-linux-arm
+            release_binaries/grpcframe-linux-arm64
+            release_binaries/grpcframe-darwin-amd64
+            release_binaries/grpcframe-darwin-arm64
+            release_binaries/grpcframe-windows-amd64.exe
+            release_binaries/grpcframe-windows-386.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
