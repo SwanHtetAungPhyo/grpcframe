@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/appliction/database/migrations/000001_create_lms_schema.down.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/appliction/database/migrations/000001_create_lms_schema.up.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/appliction/database/migrations/000003_create_enrollments_table.up.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/appliction/database/queries/assignment.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/appliction/database/queries/course.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/appliction/database/queries/enrollment.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/appliction/database/queries/query.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/appliction/database/queries/tenants.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/appliction/database/schema/schema.sql" dialect="GenericSQL" />
+  </component>
+</project>
