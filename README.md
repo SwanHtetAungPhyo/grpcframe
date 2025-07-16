@@ -102,7 +102,9 @@ grpcframe sqlc
 ```
 
 # Set up 
-
+- # Option One 
+  Go to release binary folder and download the preferred binary
+- # Option Two
 ```zsh
     
 git clone https://github.com/SwanHtetAungPhyo/grpcframe.git
