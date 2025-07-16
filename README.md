@@ -100,46 +100,80 @@ grpcframe migrate up
 grpcframe protogen
 grpcframe sqlc
 ```
+Here's how to document the download instructions for users in your `README.md`, with clear options for different platforms:
 
-# Set up 
-- # Option One 
-  Go to release binary folder and download the preferred binary
-- # Option Two
-```zsh
-    
-git clone https://github.com/SwanHtetAungPhyo/grpcframe.git
-     
-cd grpcframe
-    
-    # Linux (64-bit)
-GOOS=linux GOARCH=amd64 go build -o grpcframe .
+## 📥 Download and Installation
 
-# Linux (32-bit)
-GOOS=linux GOARCH=386 go build -o grpcframe .
+### Option 1: Download Pre-built Binaries (Recommended)
 
-# Linux ARM
-GOOS=linux GOARCH=arm go build -o grpcframe .
-GOOS=linux GOARCH=arm64 go build -o grpcframe .
+1. Go to the [Latest Release](https://github.com/SwanHtetAungPhyo/grpcframe/releases/latest) page
+2. Download the appropriate binary for your system:
 
-# macOS (Intel)
-GOOS=darwin GOARCH=amd64 go build -o grpcframe .
+  - **Windows**:
+    - 64-bit: `grpcframe-windows-amd64.exe`
+    - 32-bit: `grpcframe-windows-386.exe`
 
-# macOS (Apple Silicon)
-GOOS=darwin GOARCH=arm64 go build -o grpcframe .
+  - **macOS**:
+    - Intel: `grpcframe-darwin-amd64`
+    - Apple Silicon: `grpcframe-darwin-arm64`
 
-# Windows
-GOOS=windows GOARCH=amd64 go build -o grpcframe .
+  - **Linux**:
+    - 64-bit: `grpcframe-linux-amd64`
+    - 32-bit: `grpcframe-linux-386`
+    - ARM: `grpcframe-linux-arm`
+    - ARM64: `grpcframe-linux-arm64`
 
-sudo mv grpcframe /usr/local/bin
+3. Make the binary executable (Linux/macOS):
+   ```bash
+   chmod +x grpcframe-*
+   ```
+4. Move to your PATH (optional but recommended):
+   ```bash
+   sudo mv grpcframe-* /usr/local/bin/grpcframe
+   ```
 
-# command completion
-grpcframe completion
+### Option 2: Install via cURL (Linux/macOS)
 
-# use this after set up
-grpcframe --help     
+```bash
+# Download and install directly
+curl -L https://github.com/SwanHtetAungPhyo/grpcframe/releases/latest/download/grpcframe-$(uname -s)-$(uname -m) -o grpcframe
+chmod +x grpcframe
+sudo mv grpcframe /usr/local/bin/
 ```
----
 
+### Option 3: Build from Source
+
+```bash
+git clone https://github.com/SwanHtetAungPhyo/grpcframe.git
+cd grpcframe
+go build -o grpcframe .
+```
+
+### Verification (Optional)
+
+Verify the checksum matches what's in the release's `checksums.txt` file:
+
+```bash
+sha256sum grpcframe-*  # Linux/macOS
+certutil -hashfile grpcframe.exe SHA256  # Windows
+```
+
+### Shell Completions
+
+To enable tab completion:
+
+```bash
+# Bash
+grpcframe completion bash > /etc/bash_completion.d/grpcframe
+
+# Zsh
+grpcframe completion zsh > "${fpath[1]}/_grpcframe"
+
+# Fish
+grpcframe completion fish > ~/.config/fish/completions/grpcframe.fish
+```
+
+---
 ## 📜 License
 
 MIT License — © Swan Htet Aung Phyo
