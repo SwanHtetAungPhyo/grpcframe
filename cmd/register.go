@@ -30,46 +30,6 @@ type ServiceRegistration struct {
 	RegisterFunc string
 }
 
-//func registerServices() error {
-//	// Discover all modules in app/rpc directory
-//	modules, err := discoverModules()
-//	if err != nil {
-//		return fmt.Errorf("failed to discover modules: %w", err)
-//	}
-//
-//	if len(modules) == 0 {
-//		pkg.Info("No modules found to register")
-//		return nil
-//	}
-//
-//	// Generate updated server.go content
-//	serverContent, err := generateServerContent(modules)
-//	if err != nil {
-//		return fmt.Errorf("failed to generate server content: %w", err)
-//	}
-//
-//	// Write updated server.go
-//	serverPath := filepath.Join("app", "rpc", "server.go")
-//	if err := writeFile(serverPath, serverContent); err != nil {
-//		return fmt.Errorf("failed to write server file: %w", err)
-//	}
-//
-//	// Format the file
-// TODO: Replace exec.Command with proper implementation
-// Original line: // TODO: Replace exec.Command with proper implementation
-// TODO: Replace exec.Command with proper implementation
-// Original line: // Original line: //	if err := exec.Command("gofmt", "-w", serverPath).Run(); err != nil {
-//
-//	// Run go mod tidy
-// TODO: Replace exec.Command with proper implementation
-// Original line: // TODO: Replace exec.Command with proper implementation
-// TODO: Replace exec.Command with proper implementation
-// Original line: // Original line: //	if err := exec.Command("go", "mod", "tidy").Run(); err != nil {
-//
-//	pkg.Info(fmt.Sprintf("Successfully registered %d services", len(modules)))
-//	return nil
-//}
-
 func discoverModules() ([]ServiceRegistration, error) {
 	var registrations []ServiceRegistration
 
